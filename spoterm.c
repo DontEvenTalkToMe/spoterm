@@ -182,7 +182,11 @@ int main (int argAmount, char *argS[]) {
 				break;
 			case KEY_MOUSE:
 				getmouse(&mouseAction);
-				if (mouseAction.bstate & BUTTON1_CLICKED) {
+				if ((mouseAction.bstate & BUTTON_CTRL | BUTTON1_CLICKED) && (mouseAction.bstate & BUTTON1_CLICKED | BUTTON_CTRL)) {
+						endwin();
+						exit(0);
+				}
+				else if (mouseAction.bstate & BUTTON1_CLICKED) {
 						toggleSong();
 				}
 				else if (mouseAction.bstate & BUTTON1_DOUBLE_CLICKED) {
