@@ -37,9 +37,6 @@ int main (int argAmount, char *argS[]) {
         if (strcmp(argS[i], "n") == 0) {
             showPiano = 1; 
         }
-		if (strcmp(argS[i], "a") == 0) {
-			char usePlayers[] = " --players=spotify,%any";
-		}
     }
 
     // Setting screen settings 
@@ -186,11 +183,17 @@ int main (int argAmount, char *argS[]) {
 			case KEY_MOUSE:
 				getmouse(&mouseAction);
 				if (mouseAction.bstate & BUTTON1_CLICKED) {
-					toggleSong();
+						toggleSong();
+				}
+				else if (mouseAction.bstate & BUTTON1_DOUBLE_CLICKED) {
+						queueChanger(1);
+				}
+				else if (mouseAction.bstate & BUTTON3_DOUBLE_CLICKED) {
+						queueChanger(0);
 				}
 				break;
         }
-        usleep(1000000);
+        usleep(800000);
         strcpy(prevTitle, title);
         delayLength++;
     }
