@@ -8,3 +8,4 @@ You can git clone the repository or simply download the script, then compile it 
 1) Move away from playerctl and directly use dbus/dbus.h
 2) Show album covers
 3) Fix issues with non-spotify mpris audio players(VLC, Firefox, Strawberry etc)
+4) Windows compatability
